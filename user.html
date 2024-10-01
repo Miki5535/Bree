@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User - Sing Namthip</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f0ad4e;
+      padding: 20px;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    header input[type="search"] {
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      display: flex;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .card-content {
+      text-align: left;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .card-content p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .card-content .price {
+      font-weight: bold;
+      color: #f0ad4e;
+      margin-top: 10px;
+    }
+
+    .card-content .stock {
+      color: #666;
+    }
+
+    .card button {
+      background-color: #f0ad4e;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .card button:hover {
+      background-color: #ec971f;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #f0ad4e;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="โลโก้ Sing Namthip">
+    <input type="search" placeholder="ค้นหาสินค้า...">
+    <div>
+      <a href="#">ตะกร้า</a>
+      <a href="#">โปรไฟล์</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="card-container">
+      <!-- การ์ดสินค้า 1 -->
+      <div class="card">
+        <img src="beer-b.jpg" alt="เบียร์ B">
+        <div class="card-content">
+          <h3>เบียร์ B</h3>
+          <p>ACL 10%</p>
+          <p class="price">ราคา 75 บาท</p>
+          <p class="stock">เหลือ 50 ขวด</p>
+          <button>เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+
+      <!-- การ์ดสินค้า 2 -->
+      <div class="card">
+        <img src="beer-c.jpg" alt="เบียร์ C">
+        <div class="card-content">
+          <h3>เบียร์ C</h3>
+          <p>ACL 12%</p>
+          <p class="price">ราคา 80 บาท</p>
+          <p class="stock">เหลือ 40 ขวด</p>
+          <button>เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+
+      <!-- การ์ดสินค้า 3 -->
+      <div class="card">
+        <img src="beer-d.jpg" alt="เบียร์ D">
+        <div class="card-content">
+          <h3>เบียร์ D</h3>
+          <p>ACL 8%</p>
+          <p class="price">ราคา 70 บาท</p>
+          <p class="stock">เหลือ 30 ขวด</p>
+          <button>เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+
+      <!-- การ์ดสินค้า 4 -->
+      <div class="card">
+        <img src="beer-e.jpg" alt="เบียร์ E">
+        <div class="card-content">
+          <h3>เบียร์ E</h3>
+          <p>ACL 15%</p>
+          <p class="price">ราคา 90 บาท</p>
+          <p class="stock">เหลือ 20 ขวด</p>
+          <button>เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+
+      <!-- การ์ดสินค้า 5 -->
+      <div class="card">
+        <img src="beer-f.jpg" alt="เบียร์ F">
+        <div class="card-content">
+          <h3>เบียร์ F</h3>
+          <p>ACL 5%</p>
+          <p class="price">ราคา 60 บาท</p>
+          <p class="stock">เหลือ 80 ขวด</p>
+          <button>เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+
+      <!-- การ์ดสินค้า 6 -->
+      <div class="card">
+        <img src="beer-g.jpg" alt="เบียร์ G">
+        <div class="card-content">
+          <h3>เบียร์ G</h3>
+          <p>ACL 20%</p>
+          <p class="price">ราคา 100 บาท</p>
+          <p class="stock">เหลือ 10 ขวด</p>
+          <button>เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 บริษัทของคุณ จำกัด. สงวนลิขสิทธิ์.</p>
+    <a href="#">นโยบายความเป็นส่วนตัว</a>
+    <a href="#">ติดต่อเรา</a>
+  </footer>
+</body>
+</html>

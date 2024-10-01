@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครสมาชิก Sing Namthip</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f0ad4e;
+      padding: 20px;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .image-upload {
+      margin-right: 20px;
+      flex-basis: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-upload img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .image-upload input {
+      display: block;
+    }
+
+    .form-fields {
+      flex-basis: 70%;
+    }
+
+    .form-fields label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .form-fields input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .form-fields input:focus {
+      border-color: #f0ad4e;
+      outline: none;
+    }
+
+    .form-fields button {
+      width: 100%;
+      padding: 10px;
+      background-color: #f0ad4e;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-fields button:hover {
+      background-color: #ec971f;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #f0ad4e;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+  </style>
+
+  <script>
+    function previewImage(event) {
+      const reader = new FileReader();
+      const imageField = document.getElementById("profileImage");
+
+      reader.onload = function(){
+        if(reader.readyState === 2){
+          imageField.src = reader.result;
+        }
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="โลโก้ Sing Namthip">
+    <a href="login.html">เข้าสู่ระบบ</a> <!-- ลิงก์กลับไปหน้า login -->
+  </header>
+
+  <main>
+    <div class="form-container">
+      <div class="image-upload">
+        <img id="profileImage" src="default-profile.png" alt="รูปโปรไฟล์">
+        <input type="file" accept="image/*" onchange="previewImage(event)">
+      </div>
+      <div class="form-fields">
+        <h2>สมัครสมาชิก Sing Namthip</h2>
+        <form>
+          <label for="first_name">ชื่อ</label>
+          <input type="text" id="first_name" name="first_name" required>
+
+          <label for="last_name">นามสกุล</label>
+          <input type="text" id="last_name" name="last_name" required>
+
+          <label for="dob">วัน/เดือน/ปีเกิด</label>
+          <input type="date" id="dob" name="dob" required>
+
+          <label for="phone">เบอร์โทร</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <label for="email">อีเมล (ถ้ามี)</label>
+          <input type="email" id="email" name="email">
+
+          <label for="password">รหัสผ่าน</label>
+          <input type="password" id="password" name="password" required>
+
+          <label for="address">ที่อยู่</label>
+          <input type="text" id="address" name="address" required>
+
+          <button >สมัครสมาชิก</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 บริษัทของคุณ จำกัด. สงวนลิขสิทธิ์.</p>
+    <a href="#">นโยบายความเป็นส่วนตัว</a>
+    <a href="#">ติดต่อเรา</a>
+  </footer>
+</body>
+</html>
