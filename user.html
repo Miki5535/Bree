@@ -110,19 +110,121 @@
       background-color: #ec971f;
     }
 
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
     }
 
-    footer a {
-      color: #f0ad4e;
-      text-decoration: none;
-      margin: 0 10px;
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
     }
+
+    .modal-content h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .modal-content img {
+      width: 150px;
+      height: 150px;
+      margin-top: 10px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .modal-content p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .modal-content input[type="email"] {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .modal-content select {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .modal-content .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .modal-content button {
+      background-color: #f0ad4e;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content .cancel-btn {
+      background-color: #d9534f;
+    }
+
+    .modal-content .cancel-btn:hover {
+      background-color: #c9302c;
+    }
+
+    .modal-content button:hover {
+      background-color: #ec971f;
+    }
+
   </style>
+
+  <script>
+    function showModal(productName, price, stock, imageUrl) {
+      // Get the modal
+      var modal = document.getElementById("myModal");
+      
+      // Display product details inside modal
+      document.getElementById("modalProductName").textContent = productName;
+      document.getElementById("modalPrice").textContent = "ราคา: " + price;
+      document.getElementById("modalStock").textContent = "คงเหลือ: " + stock;
+      document.getElementById("modalImage").src = imageUrl;
+      
+      // Show the modal
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+  </script>
 </head>
 <body>
 
@@ -140,82 +242,93 @@
     <div class="card-container">
       <!-- การ์ดสินค้า 1 -->
       <div class="card">
+        <img src="beer-f.png" alt="เบียร์ A">
+        <div class="card-content">
+          <h3>เบียร์ A</h3>
+          <p>ACL 8%</p>
+          <p class="price">ราคา 70 บาท</p>
+          <p class="stock">เหลือ 60 ขวด</p>
+          <button onclick="showModal('เบียร์ A', '70 บาท', '60 ขวด', 'beer-f.png')">เพิ่มลงตะกร้า</button>
+        </div>
+      </div>
+
+      <!-- การ์ดสินค้า 2 -->
+      <div class="card">
         <img src="beer-b.png" alt="เบียร์ B">
         <div class="card-content">
           <h3>เบียร์ B</h3>
           <p>ACL 10%</p>
           <p class="price">ราคา 75 บาท</p>
           <p class="stock">เหลือ 50 ขวด</p>
-          <button>เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
-
-      <!-- การ์ดสินค้า 2 -->
-      <div class="card">
-        <img src="beer-c.png" alt="เบียร์ C">
-        <div class="card-content">
-          <h3>เบียร์ C</h3>
-          <p>ACL 12%</p>
-          <p class="price">ราคา 80 บาท</p>
-          <p class="stock">เหลือ 40 ขวด</p>
-          <button>เพิ่มลงตะกร้า</button>
+          <button onclick="showModal('เบียร์ B', '75 บาท', '50 ขวด', 'beer-b.png')">เพิ่มลงตะกร้า</button>
         </div>
       </div>
 
       <!-- การ์ดสินค้า 3 -->
       <div class="card">
-        <img src="beer-d.png" alt="เบียร์ D">
+        <img src="beer-c.png" alt="เบียร์ C">
         <div class="card-content">
-          <h3>เบียร์ D</h3>
-          <p>ACL 8%</p>
-          <p class="price">ราคา 70 บาท</p>
-          <p class="stock">เหลือ 30 ขวด</p>
-          <button>เพิ่มลงตะกร้า</button>
+          <h3>เบียร์ C</h3>
+          <p>ACL 5%</p>
+          <p class="price">ราคา 65 บาท</p>
+          <p class="stock">เหลือ 40 ขวด</p>
+          <button onclick="showModal('เบียร์ C', '65 บาท', '40 ขวด', 'beer-c.png')">เพิ่มลงตะกร้า</button>
         </div>
       </div>
 
       <!-- การ์ดสินค้า 4 -->
       <div class="card">
-        <img src="beer-e.png" alt="เบียร์ E">
+        <img src="beer-d.png" alt="เบียร์ D">
         <div class="card-content">
-          <h3>เบียร์ E</h3>
-          <p>ACL 15%</p>
-          <p class="price">ราคา 90 บาท</p>
-          <p class="stock">เหลือ 20 ขวด</p>
-          <button>เพิ่มลงตะกร้า</button>
+          <h3>เบียร์ D</h3>
+          <p>ACL 7%</p>
+          <p class="price">ราคา 80 บาท</p>
+          <p class="stock">เหลือ 30 ขวด</p>
+          <button onclick="showModal('เบียร์ D', '80 บาท', '30 ขวด', 'beer-d.png')">เพิ่มลงตะกร้า</button>
         </div>
       </div>
 
       <!-- การ์ดสินค้า 5 -->
       <div class="card">
-        <img src="beer-f.png" alt="เบียร์ F">
+        <img src="beer-e.png" alt="เบียร์ E">
         <div class="card-content">
-          <h3>เบียร์ F</h3>
-          <p>ACL 5%</p>
-          <p class="price">ราคา 60 บาท</p>
-          <p class="stock">เหลือ 80 ขวด</p>
-          <button>เพิ่มลงตะกร้า</button>
+          <h3>เบียร์ E</h3>
+          <p>ACL 9%</p>
+          <p class="price">ราคา 85 บาท</p>
+          <p class="stock">เหลือ 20 ขวด</p>
+          <button onclick="showModal('เบียร์ E', '85 บาท', '20 ขวด', 'beer-e.png')">เพิ่มลงตะกร้า</button>
         </div>
       </div>
-
-      <!-- การ์ดสินค้า 6 -->
       <div class="card">
         <img src="beer-g.png" alt="เบียร์ G">
         <div class="card-content">
-          <h3>เบียร์ G</h3>
-          <p>ACL 20%</p>
-          <p class="price">ราคา 100 บาท</p>
-          <p class="stock">เหลือ 10 ขวด</p>
-          <button>เพิ่มลงตะกร้า</button>
+          <h3>เบียร์ E</h3>
+          <p>ACL 9%</p>
+          <p class="price">ราคา 85 บาท</p>
+          <p class="stock">เหลือ 20 ขวด</p>
+          <button onclick="showModal('เบียร์ G', '85 บาท', '20 ขวด', 'beer-g.png')">เพิ่มลงตะกร้า</button>
         </div>
       </div>
+
+
     </div>
+    
+  </div>
   </main>
 
-  <footer>
-    <p>&copy; 2023 บริษัทของคุณ จำกัด. สงวนลิขสิทธิ์.</p>
-    <a href="#">นโยบายความเป็นส่วนตัว</a>
-    <a href="#">ติดต่อเรา</a>
-  </footer>
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h3 id="modalProductName"></h3>
+      <img id="modalImage" src="" alt="">
+      <p id="modalPrice"></p>
+      <p id="modalStock"></p>
+      <div class="button-container">
+        <button onclick="closeModal()">ยกเลิก</button>
+        <button onclick="closeModal()">เพิ่มลงตะกร้า</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
