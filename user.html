@@ -48,7 +48,7 @@
 
     .card-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -226,7 +226,7 @@
     }
   </script>
 </head>
-<body>
+<body >
 
   <header>
     <img src="logo.png" alt="โลโก้ Sing Namthip">
@@ -238,97 +238,113 @@
     </div>
   </header>
 
-  <main>
-    <div class="card-container">
-      <!-- การ์ดสินค้า 1 -->
-      <div class="card">
-        <img src="beer-f.png" alt="เบียร์ A">
-        <div class="card-content">
-          <h3>เบียร์ A</h3>
-          <p>ACL 8%</p>
-          <p class="price">ราคา 70 บาท</p>
-          <p class="stock">เหลือ 60 ขวด</p>
-          <button onclick="showModal('เบียร์ A', '70 บาท', '60 ขวด', 'beer-f.png')">เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
+  <main style="padding-left: 250px; padding-right: 250px;">
 
-      <!-- การ์ดสินค้า 2 -->
-      <div class="card">
-        <img src="beer-b.png" alt="เบียร์ B">
-        <div class="card-content">
-          <h3>เบียร์ B</h3>
-          <p>ACL 10%</p>
-          <p class="price">ราคา 75 บาท</p>
-          <p class="stock">เหลือ 50 ขวด</p>
-          <button onclick="showModal('เบียร์ B', '75 บาท', '50 ขวด', 'beer-b.png')">เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
-
-      <!-- การ์ดสินค้า 3 -->
-      <div class="card">
-        <img src="beer-c.png" alt="เบียร์ C">
-        <div class="card-content">
-          <h3>เบียร์ C</h3>
-          <p>ACL 5%</p>
-          <p class="price">ราคา 65 บาท</p>
-          <p class="stock">เหลือ 40 ขวด</p>
-          <button onclick="showModal('เบียร์ C', '65 บาท', '40 ขวด', 'beer-c.png')">เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
-
-      <!-- การ์ดสินค้า 4 -->
-      <div class="card">
-        <img src="beer-d.png" alt="เบียร์ D">
-        <div class="card-content">
-          <h3>เบียร์ D</h3>
-          <p>ACL 7%</p>
-          <p class="price">ราคา 80 บาท</p>
-          <p class="stock">เหลือ 30 ขวด</p>
-          <button onclick="showModal('เบียร์ D', '80 บาท', '30 ขวด', 'beer-d.png')">เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
-
-      <!-- การ์ดสินค้า 5 -->
-      <div class="card">
-        <img src="beer-e.png" alt="เบียร์ E">
-        <div class="card-content">
-          <h3>เบียร์ E</h3>
-          <p>ACL 9%</p>
-          <p class="price">ราคา 85 บาท</p>
-          <p class="stock">เหลือ 20 ขวด</p>
-          <button onclick="showModal('เบียร์ E', '85 บาท', '20 ขวด', 'beer-e.png')">เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="beer-g.png" alt="เบียร์ G">
-        <div class="card-content">
-          <h3>เบียร์ E</h3>
-          <p>ACL 9%</p>
-          <p class="price">ราคา 85 บาท</p>
-          <p class="stock">เหลือ 20 ขวด</p>
-          <button onclick="showModal('เบียร์ G', '85 บาท', '20 ขวด', 'beer-g.png')">เพิ่มลงตะกร้า</button>
-        </div>
-      </div>
-
-
+    <div class="card-container" id="card-container">
     </div>
+    
+    <script>
+const products = [
+  { name: "เบียร์ A", acl: "ACL 8%", price: "70 บาท", stock: "60 ขวด", img: "beer-f.png" },
+  { name: "เบียร์ B", acl: "ACL 10%", price: "75 บาท", stock: "50 ขวด", img: "beer-b.png" },
+  { name: "เบียร์ C", acl: "ACL 5%", price: "65 บาท", stock: "40 ขวด", img: "beer-c.png" },
+  { name: "เบียร์ D", acl: "ACL 7%", price: "80 บาท", stock: "30 ขวด", img: "beer-d.png" },
+  { name: "เบียร์ E", acl: "ACL 9%", price: "85 บาท", stock: "20 ขวด", img: "beer-e.png" },
+  { name: "เบียร์ G", acl: "ACL 9%", price: "85 บาท", stock: "20 ขวด", img: "beer-g.png" },
+  { name: "เบียร์ H", acl: "ACL 6%", price: "72 บาท", stock: "50 ขวด", img: "beer-f.png" },
+  { name: "เบียร์ I", acl: "ACL 11%", price: "78 บาท", stock: "35 ขวด", img: "beer-b.png" },
+  { name: "เบียร์ J", acl: "ACL 4%", price: "62 บาท", stock: "45 ขวด", img: "beer-c.png" },
+  { name: "เบียร์ K", acl: "ACL 9%", price: "82 บาท", stock: "25 ขวด", img: "beer-d.png" },
+  { name: "เบียร์ L", acl: "ACL 7.5%", price: "77 บาท", stock: "38 ขวด", img: "beer-e.png" },
+  { name: "เบียร์ M", acl: "ACL 8.5%", price: "69 บาท", stock: "55 ขวด", img: "beer-g.png" },
+  { name: "เบียร์ N", acl: "ACL 10.5%", price: "88 บาท", stock: "15 ขวด", img: "beer-f.png" },
+  { name: "เบียร์ O", acl: "ACL 9.5%", price: "90 บาท", stock: "18 ขวด", img: "beer-b.png" },
+  { name: "เบียร์ P", acl: "ACL 6.5%", price: "74 บาท", stock: "33 ขวด", img: "beer-c.png" },
+  { name: "เบียร์ Q", acl: "ACL 11.5%", price: "89 บาท", stock: "12 ขวด", img: "beer-d.png" },
+  { name: "เบียร์ R", acl: "ACL 5.5%", price: "66 บาท", stock: "40 ขวด", img: "beer-e.png" },
+  { name: "เบียร์ S", acl: "ACL 8%", price: "72 บาท", stock: "48 ขวด", img: "beer-g.png" },
+  { name: "เบียร์ T", acl: "ACL 7%", price: "75 บาท", stock: "25 ขวด", img: "beer-f.png" },
+  { name: "เบียร์ U", acl: "ACL 9%", price: "80 บาท", stock: "22 ขวด", img: "beer-b.png" },
+
+];
+
+
+
+    
+      const cardContainer = document.getElementById('card-container');
+    
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <div class="card-content">
+            <h3>${product.name}</h3>
+            <p>${product.acl}</p>
+            <p class="price">ราคา ${product.price}</p>
+            <p class="stock">เหลือ ${product.stock}</p>
+            <button onclick="showModal('${product.name}', '${product.price}', '${product.stock}', '${product.img}')">เพิ่มลงตะกร้า</button>
+          </div>
+        `;
+        cardContainer.appendChild(card);
+      });
+    
+      function showModal(name, price, stock, img) {
+        // ฟังก์ชันสำหรับแสดง modal สามารถปรับตามที่ต้องการ
+        alert(`สินค้า: ${name}\nราคา: ${price}\nเหลือ: ${stock}`);
+      }
+    </script>
+    
     
   </div>
   </main>
 
-  <!-- Modal -->
+
+
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <h3 id="modalProductName"></h3>
-      <img id="modalImage" src="" alt="">
-      <p id="modalPrice"></p>
-      <p id="modalStock"></p>
+      <h3 id="modalProductName">ชื่อสินค้า</h3>
+      <img id="modalImage" src="" alt="รูปสินค้า">
+      <p id="modalPrice">ราคา</p>
+      <p id="modalStock">คงเหลือ</p>
+      <label for="paymentMethod">วิธีชำระเงิน:</label>
+      <select id="paymentMethod">
+        <option value="บัตรเครดิต">บัตรเครดิต</option>
+        <option value="โอนผ่านธนาคาร">โอนผ่านธนาคาร</option>
+      </select>
+      <label for="quantity">จำนวน:</label>
+      <input type="number" id="quantity" min="1" value="1">
+      <label for="email">อีเมลที่จะส่งสลิปให้:</label>
+      <input type="email" id="email" placeholder="example@example.com">
       <div class="button-container">
-        <button onclick="closeModal()">ยกเลิก</button>
-        <button onclick="closeModal()">เพิ่มลงตะกร้า</button>
+        <button class="confirm-btn" onclick="closeModal()">ยืนยันการชำระเงิน</button>
+        <button class="cancel-btn" onclick="closeModal()">ยกเลิก</button>
       </div>
     </div>
   </div>
+
+  <div id="myModal2" class="modal">
+    <div class="modal-content">
+      <h3 id="modalProductName">ชื่อสินค้า</h3>
+      <img id="modalImage" src="" alt="รูปสินค้า">
+      <p id="modalPrice">ราคา</p>
+      <p id="modalStock">คงเหลือ</p>
+      <label for="paymentMethod">วิธีชำระเงิน:</label>
+      <select id="paymentMethod">
+        <option value="บัตรเครดิต">บัตรเครดิต</option>
+        <option value="โอนผ่านธนาคาร">โอนผ่านธนาคาร</option>
+      </select>
+      <label for="quantity">จำนวน:</label>
+      <input type="number" id="quantity" min="1" value="1">
+      <label for="email">อีเมลที่จะส่งสลิปให้:</label>
+      <input type="email" id="email" placeholder="example@example.com">
+      <div class="button-container">
+        <button class="confirm-btn" onclick="closeModal()">ยืนยันการชำระเงิน</button>
+        <button class="cancel-btn" onclick="closeModal()">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+  
 
 </body>
 </html>

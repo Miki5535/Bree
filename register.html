@@ -46,7 +46,8 @@
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 700px;
+      max-width: 1000px;
+      overflow: hidden;
       display: flex;
       justify-content: space-between;
     }
@@ -73,6 +74,7 @@
 
     .form-fields {
       flex-basis: 70%;
+      overflow: hidden;
     }
 
     .form-fields label {
@@ -122,6 +124,83 @@
       text-decoration: none;
       margin: 0 10px;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+      justify-content: center; /* Center the modal */
+      align-items: center; /* Center the modal */
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
   </style>
 
   <script>
@@ -136,15 +215,34 @@
       }
       reader.readAsDataURL(event.target.files[0]);
     }
+
+    function showModal() {
+      document.getElementById("successModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("successModal").style.display = "none";
+    }
+
+    function redirectToLogin() {
+      document.getElementById("successModal").style.display = "none";
+      window.location.href = "index.html"; 
+      
+    }
+
+    function submitForm() {
+      // เพิ่มการตรวจสอบข้อมูลที่นี่
+      showModal(); // แสดง modal เมื่อสมัครสมาชิกเสร็จ
+    }
   </script>
 </head>
 <body>
   <header>
     <img src="logo.png" alt="โลโก้ Sing Namthip">
-    <a href="login.html">เข้าสู่ระบบ</a> <!-- ลิงก์กลับไปหน้า login -->
+    <a href="index.html">เข้าสู่ระบบ</a> 
   </header>
 
-  <main>
+  <main style="padding: 40px;">
     <div class="form-container">
       <div class="image-upload">
         <img id="profileImage" src="default-profile.png" alt="รูปโปรไฟล์">
@@ -152,7 +250,7 @@
       </div>
       <div class="form-fields">
         <h2>สมัครสมาชิก Sing Namthip</h2>
-        <form>
+        <form onsubmit="event.preventDefault(); submitForm();">
           <label for="first_name">ชื่อ</label>
           <input type="text" id="first_name" name="first_name" required>
 
@@ -174,11 +272,21 @@
           <label for="address">ที่อยู่</label>
           <input type="text" id="address" name="address" required>
 
-          <button >สมัครสมาชิก</button>
+          <button type="submit">สมัครสมาชิก</button>
         </form>
       </div>
     </div>
   </main>
+
+  <!-- Modal แจ้งเตือน -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>สมัครสมาชิกเสร็จเรียบร้อยแล้ว!</h2>
+      <p>คุณได้สมัครสมาชิกเรียบร้อยแล้ว กรุณากดปุ่มด้านล่างเพื่อกลับไปยังหน้าล็อกอิน.</p>
+      <button onclick="redirectToLogin()">ตกลง</button>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2023 บริษัทของคุณ จำกัด. สงวนลิขสิทธิ์.</p>
